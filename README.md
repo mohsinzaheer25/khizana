@@ -124,7 +124,7 @@ Enter Password For Your Khizana
 
 If you want to destroy the vault then you can use `destroy` command to destroy it.
 
-\*\* Note: Make a backup of your secret, once it is destroyed it can't be recovered.
+**Note:** Make a backup of your secret, once it is destroyed it can't be recovered.
 
 ```cassandraql
 Enter Password For Your Khizana
