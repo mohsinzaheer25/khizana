@@ -7,16 +7,16 @@ import (
 	"strings"
 )
 
-func Create(khizanaPath string, password string){
+func Create(khizanaPath string, password string) {
 	crypto.EncryptFile(khizanaPath, []byte("# Khizana\n"), password)
-	fmt.Println("\nKhizana has initialize successfully")
+	fmt.Println("\nKhizana has initialized successfully")
 }
 
-func View(khizanaPath string, password string) string{
+func View(khizanaPath string, password string) string {
 	return string(crypto.DecryptFile(khizanaPath, password))
 }
 
-func Add(khizanaPath string, key string, value string, password string){
+func Add(khizanaPath string, key string, value string, password string) {
 	//	khizana add -k username -v mohsinzaheer25@hotmail.com
 
 	oldData := View(khizanaPath, password)
@@ -29,7 +29,7 @@ func Add(khizanaPath string, key string, value string, password string){
 	}
 }
 
-func Get(khizanaPath string, key string, password string){
+func Get(khizanaPath string, key string, password string) {
 	// khizana get username
 
 	data := View(khizanaPath, password)
@@ -48,7 +48,7 @@ func Get(khizanaPath string, key string, password string){
 	}
 }
 
-func Update(khizanaPath string, key string, value string, password string){
+func Update(khizanaPath string, key string, value string, password string) {
 	// khizana update -k username -v mohsinzaheer25@hotmail.com
 
 	data := View(khizanaPath, password)
@@ -71,7 +71,7 @@ func Update(khizanaPath string, key string, value string, password string){
 	}
 }
 
-func Delete(khizanaPath string, key string, password string){
+func Delete(khizanaPath string, key string, password string) {
 	// khizana update -k username
 
 	data := View(khizanaPath, password)
@@ -82,7 +82,7 @@ func Delete(khizanaPath string, key string, password string){
 		if splitKeyvalue[0] == key {
 			findKey = splitKeyvalue[0]
 			// Giving space between key: & value
-			keyValue := fmt.Sprintf("%s:%s\n",splitKeyvalue[0],splitKeyvalue[1])
+			keyValue := fmt.Sprintf("%s:%s\n", splitKeyvalue[0], splitKeyvalue[1])
 			newData := strings.ReplaceAll(data, keyValue, "")
 			crypto.EncryptFile(khizanaPath, []byte(newData), password)
 		}
@@ -94,7 +94,7 @@ func Delete(khizanaPath string, key string, password string){
 	}
 }
 
-func Destroy(khizanaPath string, password string){
+func Destroy(khizanaPath string, password string) {
 	data := View(khizanaPath, password)
 	if data != "" {
 		err := os.Remove(khizanaPath)

@@ -18,7 +18,7 @@ func createHash(key string) string {
 	return hex.EncodeToString(hasher.Sum(nil))
 }
 
-func encrypt( data []byte, password string) []byte {
+func encrypt(data []byte, password string) []byte {
 	block, err := aes.NewCipher([]byte(createHash(password)))
 
 	if err != nil {
@@ -29,7 +29,7 @@ func encrypt( data []byte, password string) []byte {
 		fmt.Println(err)
 	}
 	nonce := make([]byte, gcm.NonceSize())
-	if _, err = io.ReadFull(rand.Reader, nonce); err !=nil {
+	if _, err = io.ReadFull(rand.Reader, nonce); err != nil {
 		panic(err.Error())
 	}
 	//	Encrypt the data

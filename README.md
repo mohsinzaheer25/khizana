@@ -33,7 +33,7 @@ Initialization is the first step to setup Khizana. Password is mandatory in each
 $ khizana init
 Enter Password For Your Khizana
 
-Khizana has initialize successfully
+Khizana has initialized successfully
 ```
 
 #### Adding Secret
